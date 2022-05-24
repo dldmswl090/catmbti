@@ -9,7 +9,7 @@ const Home= () => {
 
     const navigate = useNavigate();
     const handleClickBtn = () => {
-        //useHistory
+        //useHistory 약간 a태그처럼 이동하는 기능??
         navigate('/question');
      }
 

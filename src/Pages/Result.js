@@ -4,7 +4,7 @@ import React from 'react';
 const Result= () => {
   return (
     <div>
-    홈화면입니다.
+    결과화면입니다.
   </div>
   )
 }

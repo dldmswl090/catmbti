@@ -9,7 +9,10 @@ import { QuestionData } from '../assets/data/questiondata';
 
 const Question= () => {
 
+    //progress Bar 움직임을 위한 useState
     const [QuestionNo,setQuestionNo] = React.useState(0);
+    //console.log(QuestionNo);
+
     const [TotalScore,setTotalScrore] = React.useState([
         {id: "EI", score: 0},
         {id: "SN", score: 0},

@@ -1,23 +1,36 @@
 import React from 'react';
 //CSS-IN-JS
 import styled from 'styled-components';
-import PangImage from '../assets/raoul-droog-yMSecCHsIBc-unsplash.jpg';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router';
 import { ResultData } from '../assets/data/result';
+import { useSearchParams } from 'react-router-dom';
 
 
 const Result= () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const mbti = searchParams.get('mbti');
+    //최종적으로 도출한 결과 객체
+    const [resultData, setResultData] = React.useState({});
+
+    React.useEffect(()=>{
+        const result = ResultData.find((s)=> s.best === mbti)
+        setResultData(result);
+    },[mbti])
+
+    console.log(resultData);
+
+    console.log(mbti)
   return (
     <Wrapper>
     <Header>예비집사 판별기</Header>
     <Contents>
     <Title>결과 보기</Title>
     <LogoImage>
-        <img src={ResultData[0].image} className="rounded-circle" width={300} height={300}/>
+        <img src={resultData.image} className="rounded-circle" width={300} height={300}/>
     </LogoImage>
-    <Desc>예비집사님과 찰떡궁합인 고양이는 {ResultData[0].name}입니다.</Desc>
+    <Desc>예비집사님과 찰떡궁합인 고양이는 {resultData.name}입니다.</Desc>
     <Button style={{fontFamily: "EarlyFontDiary"}} onClick={()=>navigate('/')}>테스트 다시하기</Button>
     </Contents>
   </Wrapper>

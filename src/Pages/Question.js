@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {ProgressBar,Button} from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { QuestionData } from '../assets/data/questiondata';
 
 
@@ -34,8 +34,22 @@ const Question= () => {
         if(QuestionData.length !==QuestionNo + 1){
             setQuestionNo(QuestionNo + 1);
         }else {
+            //mbti 도출
+            //새로 만든 newScore에 reduce 함수를 쓰는데 reduce(인자:acc, curr)
+            //누적 값(acc) 현재 값(cur) 아래와 같이 2점이거나 이상 일 경우는 mbti에 ex) "EI" 에 'E'를 아닌경우에는 'I'를! 
+            const mbti = newScore.reduce(
+                (acc, curr) => acc + (curr.score >= 2 ? curr.id.substring(0,1):curr.id.substring(1,2)),
+                ""
+            );
+            //console.log(mbti);
             //마지막 문제까지 풀면 Result로 가야하는 역할
-            navigate('/result');
+            //+로 도출된 mbti결과도 같이 가져가야되기 때문에 하는 밑에 작업!
+            navigate({
+                pathname: '/result',
+                search: `?${createSearchParams({
+                    mbti:mbti,
+                })}`
+            });
         }
         
         //if( type === 'EI'){

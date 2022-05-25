@@ -40,7 +40,7 @@ const Result= () => {
     <Desc>예비집사님과 찰떡궁합인 고양이는 {resultData.name}입니다.</Desc>
     <ButtonGroup>
     <Button style={{fontFamily: "EarlyFontDiary"}} onClick={()=>navigate('/')}>테스트 다시하기</Button>
-    <KakaoShareButton/>
+    <KakaoShareButton data={resultData}/>
     </ButtonGroup>
     </Contents>
   </Wrapper>

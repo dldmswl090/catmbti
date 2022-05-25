@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 //↓ kakao를 인식하게 하기 위한 역할 
 const {Kakao} = window;
 
-const KakaoShareButton = () => {
+const KakaoShareButton = ({data}) => {
     const url = 'https://catmbtimakeit.netlify.app/'
     //공유하고 싶은 우리 결과 URL 담을 변수
     const resultUrl = window.location.href;
 
-    console.log(resultUrl,url) 
+    //console.log(resultUrl,url) 
     // public안에 _redirects라는 폴더 하나 만들어서 그 안에 /* /index.html 200 이라고 넣어주고 저장하기
 
     React.useEffect(()=>{
@@ -24,12 +24,11 @@ const shareKakao = () => {
         objectType: 'feed',
         content: {
           title: '예비집사 판별기 결과',
-          description: '예비 집사님이 고양이를 키운다면 가장 잘 맞는 고양이는 아비시니안입니다. ',
-          imageUrl:
-            'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+          description: `예비 집사님이 고양이를 키운다면 가장 잘 맞는 고양이는 ${data.name}입니다. `,
+          imageUrl:url + data.image,
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            androidExecutionParams: 'test',
+            mobileWebUrl: resultUrl,
+            webUrl :resultUrl,
           },
         },
         buttons: [
@@ -37,6 +36,7 @@ const shareKakao = () => {
             title: '나도 테스트 하러 가기',
             link: {
               mobileWebUrl: url,
+              webUrl: url,
             },
           },
         ]

@@ -14,10 +14,16 @@ const Result= () => {
     //최종적으로 도출한 결과 객체
     const [resultData, setResultData] = React.useState({});
 
+    //결과 뽑아내기
     React.useEffect(()=>{
-        const result = ResultData.find((s)=> s.best === mbti)
+        //data에 담아놓은 ResultData를 말함
+        const result = ResultData.find((b)=> b.best === mbti)
+        //b.best === mbti와 같을 때 객체로 return 해줌  -> 그 받은 객체를 다시 저장해야 되기 때문에 
+        // const [resultData, setResultData] = React.useState({}); 이 친구를 또 만들어준다.
         setResultData(result);
+    
     },[mbti])
+    //[mbti]역할은 mbti가 결정된 시점에 뽑아내야되서 넣어줌
 
     console.log(resultData);
 
@@ -28,7 +34,7 @@ const Result= () => {
     <Contents>
     <Title>결과 보기</Title>
     <LogoImage>
-        <img src={resultData.image} className="rounded-circle" width={300} height={300}/>
+        <img alt="결과이미지" src={resultData.image} className="rounded-circle" width={300} height={300}/>
     </LogoImage>
     <Desc>예비집사님과 찰떡궁합인 고양이는 {resultData.name}입니다.</Desc>
     <Button style={{fontFamily: "EarlyFontDiary"}} onClick={()=>navigate('/')}>테스트 다시하기</Button>

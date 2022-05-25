@@ -30,14 +30,17 @@ const Result= () => {
     console.log(mbti)
   return (
     <Wrapper>
-    <Header>예비집사 판별기</Header>
+    <Header>예비집사 판별기</Header> 
     <Contents>
     <Title>결과 보기</Title>
     <LogoImage>
         <img alt="결과이미지" src={resultData.image} className="rounded-circle" width={300} height={300}/>
     </LogoImage>
     <Desc>예비집사님과 찰떡궁합인 고양이는 {resultData.name}입니다.</Desc>
+    <ButtonGroup>
     <Button style={{fontFamily: "EarlyFontDiary"}} onClick={()=>navigate('/')}>테스트 다시하기</Button>
+   
+    </ButtonGroup>
     </Contents>
   </Wrapper>
   )
@@ -81,4 +84,8 @@ const Desc = styled.div`
     margin-top: 20px;
     font-family: 'EarlyFontDiary';
     margin-bottom: 30px;
+`
+const ButtonGroup = styled.div`
+    display: flex;
+    flex-direction: row;
 `

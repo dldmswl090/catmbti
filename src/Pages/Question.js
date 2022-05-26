@@ -105,7 +105,7 @@ const Question= () => {
     // 버튼들도 AB나누지 않고 그냥 Button으로 통일시켜줘서 map 함수를 이용하기
   return (
     <Wrapper>
-        <ProgressBar striped variant="danger" now={(QuestionNo/QuestionData.length *100)} style={{marginTop: '20px'}}/>
+        <ProgressBar striped variant="danger" now={(QuestionNo/QuestionData.length *100)}/>
         <Title>{QuestionData[QuestionNo].title}</Title>
         <ButtonGroup>
         <Button onClick={()=>handleClickButton(1, QuestionData[QuestionNo].type)} style={{width:'40%', minHeight: '200px', fontSize: '15px', backgroundColor:"lightsalmon", outLine:"none", border:"none"}}>{QuestionData[QuestionNo].answera}</Button>

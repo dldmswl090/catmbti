@@ -44,7 +44,7 @@ const shareKakao = () => {
     }
     return(
         
-         <Button onClick={shareKakao} style={{fontFamily: "EarlyFontDiary", width: 170, marginLeft:'20px'}}>카카오톡 공유하기</Button>
+         <Button onClick={shareKakao} style={{fontFamily: "EarlyFontDiary", width: 170, marginLeft:'20px', backgroundColor:"lightsalmon", outLine:"none", border:"none"}}>카카오톡 공유하기</Button>
         
     )
 }

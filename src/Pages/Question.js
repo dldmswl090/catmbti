@@ -108,8 +108,8 @@ const Question= () => {
         <ProgressBar striped variant="danger" now={(QuestionNo/QuestionData.length *100)} style={{marginTop: '20px'}}/>
         <Title>{QuestionData[QuestionNo].title}</Title>
         <ButtonGroup>
-        <Button onClick={()=>handleClickButton(1, QuestionData[QuestionNo].type)} style={{width:'40%', minHeight: '200px', fontSize: '15px'}}>{QuestionData[QuestionNo].answera}</Button>
-        <Button onClick={()=>handleClickButton(0, QuestionData[QuestionNo].type)} style={{width:'40%', minHeight: '200px', fontSize: '15px', marginLeft:'20px'}}>{QuestionData[QuestionNo].answerb}</Button>
+        <Button onClick={()=>handleClickButton(1, QuestionData[QuestionNo].type)} style={{width:'40%', minHeight: '200px', fontSize: '15px', backgroundColor:"lightsalmon", outLine:"none", border:"none"}}>{QuestionData[QuestionNo].answera}</Button>
+        <Button onClick={()=>handleClickButton(0, QuestionData[QuestionNo].type)} style={{width:'40%', minHeight: '200px', fontSize: '15px', marginLeft:'20px', backgroundColor:"lightsalmon", outLine:"none", border:"none"}}>{QuestionData[QuestionNo].answerb}</Button>
         </ButtonGroup>
     </Wrapper>
   )
@@ -118,7 +118,7 @@ const Question= () => {
 export default Question;
 
 const Wrapper = styled.div`
-
+    background-color: salmon;
     height: 100vh;
     width: 100%;
     

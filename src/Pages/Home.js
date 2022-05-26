@@ -22,7 +22,7 @@ const Home= () => {
         <img alt="고양이사진" src={PangImage} className="rounded-circle" width={300} height={300}/>
     </LogoImage>
     <Desc>MBTI를 기반으로 하는 나랑 잘 맞는 고양이 찾기</Desc>
-    <Button style={{fontFamily: "EarlyFontDiary"}} onClick={handleClickBtn}>테스트 시작하기</Button>
+    <Button style={{fontFamily: "EarlyFontDiary", backgroundColor:"lightsalmon", outLine:"none", border:"none"}} onClick={handleClickBtn}>테스트 시작하기</Button>
     </Contents>
   </Wrapper>
   )
@@ -31,7 +31,7 @@ const Home= () => {
 export default Home
 
 const Wrapper = styled.div`
-
+    background-color: salmon;
     height: 100vh;
     width: 100%;
     

@@ -11,20 +11,29 @@ import KakaoShareButton from '../Components/KakaoShareButton';
 const Result= () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
-    const mbti = searchParams.get('mbti');
+    const mbti = searchParams.get('mbti'); 
     //최종적으로 도출한 결과 객체
     const [resultData, setResultData] = React.useState({});
+
+    //useEffect(()=>{
+    //이 안에 실행할 내용쓰기
+    //},[])
+    //[]여기 들어가는 값을 당연히 배열이여야하고 []생략하면 렌더링될때마다 실행되고 빈배열을 넣으면 한번만 실행된다
+    //[]특정값을 넣으면 그특정값이 업데이트될때만 실행된다
+
+
 
     //결과 뽑아내기
     React.useEffect(()=>{
         //data에 담아놓은 ResultData를 말함
-        const result = ResultData.find((b)=> b.best === mbti)
+        const result = ResultData.find((d)=> d.best === mbti)
+       
         //b.best === mbti와 같을 때 객체로 return 해줌  -> 그 받은 객체를 다시 저장해야 되기 때문에 
         // const [resultData, setResultData] = React.useState({}); 이 친구를 또 만들어준다.
         setResultData(result);
     
     },[mbti])
-    //[mbti]역할은 mbti가 결정된 시점에 뽑아내야되서 넣어줌
+    //[mbti]역할은 mbti가 결정된 시점에 뽑아내야되서(업데이트되서 내용이 새로 나와야하기에) 넣어줌
 
     console.log(resultData);
 
